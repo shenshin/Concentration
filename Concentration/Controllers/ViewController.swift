@@ -10,48 +10,53 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var game: Concentration!
-    var flips: Int = 0 {
+    private lazy var game: Concentration = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+
+    private(set) var flipCount: Int = 0 {
         didSet {
-            flipsLabel.text = "Flips: \(flips)"
+            flipsLabel.text = "Flips: \(flipCount)"
         }
     }
-    var emojiChoices = [String]()
-    var emoji = [Int: String]()
 
-    @IBOutlet var cardButtons: [CardButton]!
-    @IBOutlet weak var flipsLabel: UILabel!
+    var numberOfPairsOfCards: Int {
+        return (cardButtons.count+1)/2
+    }
+
+    private var emoji: Emoji!
+
+    @IBOutlet private var cardButtons: [CardButton]!
+    @IBOutlet private weak var flipsLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         startNewGame()
+        print(5.arc4random)
     }
 
-    @IBAction func touchCard(_ sender: CardButton) {
+    @IBAction private func touchCard(_ sender: CardButton) {
         guard let cardNumber = cardButtons.firstIndex(of: sender) else {print("Card not found"); return}
         game.chooseCard(at: cardNumber)
         updateViewsFromModel()
-        flips += 1
+        flipCount += 1
     }
 
-    @IBAction func newGameButtonPressed(_ sender: UIButton) {
+    @IBAction private func newGameButtonPressed(_ sender: UIButton) {
         startNewGame()
     }
 
     func startNewGame() {
-        emojiChoices = ["🦇", "🧟‍♂️", "🧛🏻‍♂️", "💀", "🎃", "👻", "😈", "👾", "🧙🏼‍♀️"]
-        flips = 0
-        emoji.removeAll()
-        game = Concentration(numberOfPairsOfCards: cardButtons.count/2)
+        emoji = Emoji(setTheme: .halloween)
+        flipCount = 0
+        game.startNewGame()
         updateViewsFromModel()
     }
 
-    func updateViewsFromModel() {
+    private func updateViewsFromModel() {
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
             if card.isFaceUp {
-                button.setTitle(emoji(for: card), for: .normal)
+                button.setTitle(emoji.getItem(forId: card.identifier), for: .normal)
                 button.backgroundColor = .white
             } else {
                 button.setTitle("", for: .normal)
@@ -59,12 +64,10 @@ class ViewController: UIViewController {
             }
         }
     }
+}
 
-    func emoji(for card: Card) -> String {
-        if emojiChoices.count > 0, emoji[card.identifier] == nil {
-            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-            emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
-        }
-        return emoji[card.identifier] ?? "?"
+extension Int {
+    var arc4random: Int {
+        return Int(arc4random_uniform(UInt32(self)))
     }
 }

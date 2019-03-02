@@ -15,6 +15,7 @@
 		78DF35752226CC190015B65D /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DF35742226CC190015B65D /* Concentration.swift */; };
 		78DF35782226E8350015B65D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DF35772226E8350015B65D /* Card.swift */; };
 		78DF358022281B700015B65D /* CardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DF357F22281B700015B65D /* CardButton.swift */; };
+		78F81F332229E8F30075006E /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F81F322229E8F30075006E /* Emoji.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		78DF35742226CC190015B65D /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		78DF35772226E8350015B65D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		78DF357F22281B700015B65D /* CardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardButton.swift; sourceTree = "<group>"; };
+		78F81F322229E8F30075006E /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				78DF35742226CC190015B65D /* Concentration.swift */,
 				78DF35772226E8350015B65D /* Card.swift */,
+				78F81F322229E8F30075006E /* Emoji.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78F81F332229E8F30075006E /* Emoji.swift in Sources */,
 				7854DA452226CB8900F07D61 /* ViewController.swift in Sources */,
 				7854DA432226CB8900F07D61 /* AppDelegate.swift in Sources */,
 				78DF35752226CC190015B65D /* Concentration.swift in Sources */,

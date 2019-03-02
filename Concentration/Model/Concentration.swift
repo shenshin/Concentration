@@ -10,44 +10,38 @@ import Foundation
 
 class Concentration {
 
-    var cards: [Card] = []
+    private(set) var cards: [Card] = []
+
+    private let numberOfPairsOfCards: Int
 
     //индекс одной и только одной перевёрнутой вверх карты
-    var indexOfOneAndOnlyFaceUpCard: Int? {
+    private var indexOfOneAndOnlyFaceUpCard: Int? {
+
         get {
-            var numberOfFaceUpCards: Int = 0
-            var indexOfFaceUpCard: Int?
-            for index in cards.indices where cards[index].isFaceUp == true {
-                numberOfFaceUpCards += 1
-                indexOfFaceUpCard = index
+            var foundIndex: Int?
+            for index in cards.indices where cards[index].isFaceUp {
+                if foundIndex == nil {
+                    foundIndex = index
+                } else {
+                    return nil
+                }
             }
-            if numberOfFaceUpCards == 1 {
-                return indexOfFaceUpCard
-            } else {
-                return nil
-            }
+            return foundIndex
         }
         set {
             for index in cards.indices {
-                cards[index].isFaceUp = false
+                cards[index].isFaceUp = (index == newValue)
             }
-            cards[newValue!].isFaceUp = true
         }
     }
 
     init(numberOfPairsOfCards: Int) {
-        Card.identifierFactory = 0
-        for _ in 1 ... numberOfPairsOfCards {
-            let card = Card()
-            cards += [card, card]
-        }
-        //тасую карты стандартной функцией перетасовки массива
-        cards.shuffle()
-        //print(cards.map {$0.identifier}) //печатает элементы массива в строчку
-        //cards.forEach {print($0.identifier)} //печатает элементы массива в столбик
+        self.numberOfPairsOfCards = numberOfPairsOfCards
+        startNewGame()
     }
-    //TODO: - Переделать метод с учётом вычисляемого свойства indexOfOneAndOnlyFaceUpCard
+
     func chooseCard(at index: Int) {
+        assert(cards.indices.contains(index), "Concentration.chooseCard(at:\(index)): chosen index is not in the cards")
         //если карта не помечена как угаданная
         if !cards[index].isMatched {
             //если одна карта уже перевёрнута и это не текущая карта
@@ -60,16 +54,22 @@ class Concentration {
                     //скрыть перевёрнутую карту и текущую - это уже работа контроллера
                 }
                 cards[index].isFaceUp = true
-                indexOfOneAndOnlyFaceUpCard = nil
-            } else { //если нет перевёрнутых карт или их больше одной (2)
-                //перевернуть все карты вниз
-                for flipDownIndex in cards.indices {
-                    cards[flipDownIndex].isFaceUp = false
-                }
-                //открыть только что выбранную карту
-                cards[index].isFaceUp = true
+            } else {
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
+    }
+
+    func startNewGame() {
+        cards.removeAll()
+        Card.identifierFactory = 0
+        for _ in 1 ... numberOfPairsOfCards {
+            let card = Card()
+            cards += [card, card]
+        }
+        //тасую карты стандартной функцией перетасовки массива
+        cards.shuffle()
+        //print(cards.map {$0.identifier}) //печатает элементы массива в строчку
+        //cards.forEach {print($0.identifier)} //печатает элементы массива в столбик
     }
 }

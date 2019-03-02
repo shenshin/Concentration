@@ -21,7 +21,7 @@ struct Card {
         self.identifier = Card.getUniqueIdentifier()
     }
 
-    static func getUniqueIdentifier() -> Int {
+    private static func getUniqueIdentifier() -> Int {
         identifierFactory += 1
         return identifierFactory
     }
