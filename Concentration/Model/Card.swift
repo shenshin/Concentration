@@ -12,9 +12,9 @@ import Foundation
 struct Card {
     var isFaceUp = false
     var isMatched = false
-    var identifier: Int
+    private var identifier: Int
 
-    static var identifierFactory = 0
+    private static var identifierFactory = 0
     //инициализаторы должны иметь одно имя для внутренних и внешних
     //параметров
     init() {
@@ -24,5 +24,15 @@ struct Card {
     private static func getUniqueIdentifier() -> Int {
         identifierFactory += 1
         return identifierFactory
+    }
+}
+
+extension Card: Hashable, Equatable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.identifier)
+    }
+
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.identifier == rhs.identifier
     }
 }

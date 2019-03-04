@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Concentration {
+struct Concentration {
 
     private(set) var cards: [Card] = []
 
@@ -40,7 +40,7 @@ class Concentration {
         startNewGame()
     }
 
-    func chooseCard(at index: Int) {
+    mutating func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at:\(index)): chosen index is not in the cards")
         //если карта не помечена как угаданная
         if !cards[index].isMatched {
@@ -60,16 +60,13 @@ class Concentration {
         }
     }
 
-    func startNewGame() {
+    mutating func startNewGame() {
         cards.removeAll()
-        Card.identifierFactory = 0
         for _ in 1 ... numberOfPairsOfCards {
             let card = Card()
             cards += [card, card]
         }
         //тасую карты стандартной функцией перетасовки массива
         cards.shuffle()
-        //print(cards.map {$0.identifier}) //печатает элементы массива в строчку
-        //cards.forEach {print($0.identifier)} //печатает элементы массива в столбик
     }
 }
