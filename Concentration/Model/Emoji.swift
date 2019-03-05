@@ -10,6 +10,7 @@ import Foundation
 
 struct Emoji {
     private var emojiArray: [String] = []
+    private var emoji: [Card: String] = [:]
 
     enum EmojiTheme {
         case halloween
@@ -22,7 +23,7 @@ struct Emoji {
 
     init(setTheme theme: EmojiTheme) {
         emojiArray = setTheme(theme)
-        emojiArray.shuffle()
+        //emojiArray.shuffle()
     }
 
     private func setTheme(_ emojiTheme: EmojiTheme) -> [String] {
@@ -44,8 +45,15 @@ struct Emoji {
     }
 
     func getItem(forId identifier: Int) -> String {
-        //return "?"
         return identifier < emojiArray.count ? emojiArray[identifier] : "?"
+    }
+    
+    mutating func getItem(forCard card: Card) -> String {
+        if emoji[card] == nil, emojiArray.count > 0 {
+            let randomEmoji = emojiArray.remove(at: emojiArray.count.arc4random)
+            emoji[card] = randomEmoji
+        }
+        return emoji[card] ?? "@"
     }
 
 }

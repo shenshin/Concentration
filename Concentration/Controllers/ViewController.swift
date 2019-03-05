@@ -56,18 +56,12 @@ class ViewController: UIViewController {
             let button = cardButtons[index]
             let card = game.cards[index]
             if card.isFaceUp {
-                button.setTitle(emoji.getItem(forId: card.identifier), for: .normal)
+                button.setTitle(emoji.getItem(forCard: card), for: .normal)
                 button.backgroundColor = .white
             } else {
                 button.setTitle("", for: .normal)
                 button.backgroundColor = card.isMatched ? .clear : .orange
             }
         }
-    }
-}
-
-extension Int {
-    var arc4random: Int {
-        return Int(arc4random_uniform(UInt32(self)))
     }
 }

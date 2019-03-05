@@ -18,15 +18,16 @@ struct Concentration {
     private var indexOfOneAndOnlyFaceUpCard: Int? {
 
         get {
-            var foundIndex: Int?
-            for index in cards.indices where cards[index].isFaceUp {
-                if foundIndex == nil {
-                    foundIndex = index
-                } else {
-                    return nil
-                }
-            }
-            return foundIndex
+            return cards.firstIndex(of: cards.filter{$0.isFaceUp}.oneAndOnly()!)
+//            var foundIndex: Int?
+//            for index in cards.indices where cards[index].isFaceUp {
+//                if foundIndex == nil {
+//                    foundIndex = index
+//                } else {
+//                    return nil
+//                }
+//            }
+//            return foundIndex
         }
         set {
             for index in cards.indices {
@@ -47,7 +48,7 @@ struct Concentration {
             //если одна карта уже перевёрнута и это не текущая карта
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 //проверить, совпадают ли текущая карта и перевёрнутая
-                if cards[index].identifier == cards[matchIndex].identifier {
+                if cards[index] == cards[matchIndex] {
                     //пометить перевёрнутую карту и текущую как совпадающие
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
