@@ -26,13 +26,17 @@ struct Card {
         return identifierFactory
     }
 }
-
+//без этих двух функций ничего работать не будет!!!
+//Хотя считается, что структуры со свойствами, представленными типами,
+//реализующими Hashable, являются Hashable автоматически, и реализовывать
+//нижеприведённые методы не обязательно, тем не менее, без них программа
+//не работает!
 extension Card: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.identifier)
     }
-//
-//    static func == (lhs: Card, rhs: Card) -> Bool {
-//        return lhs.identifier == rhs.identifier
-//    }
+
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
 }

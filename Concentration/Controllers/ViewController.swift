@@ -70,7 +70,7 @@ class ViewController: UIViewController {
             let button = cardButtons[index]
             let card = game.cards[index]
             if card.isFaceUp {
-                button.setTitle(emoji.getItem(forCard: card), for: .normal)
+                button.setTitle(emoji.getItemFromString(forCard: card), for: .normal)
                 button.backgroundColor = .white
             } else {
                 button.setTitle("", for: .normal)

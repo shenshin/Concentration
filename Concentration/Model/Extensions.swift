@@ -15,7 +15,10 @@ extension Int {
 }
 
 extension Collection {
-    func oneAndOnly() -> Element? {
-        return self.count == 1 ? self.first : nil
+    var oneAndOnly: Element? {
+        return count == 1 ? first : nil
+    }
+    func oneAndOnlyElement() -> Element? {
+        return count == 1 ? first : nil
     }
 }
