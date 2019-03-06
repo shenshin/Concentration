@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     }
 
     func startNewGame() {
-        emoji = Emoji(setTheme: .halloween)
+        emoji = Emoji(setTheme: .random)
         flipCount = 0
         game.startNewGame()
         updateViewsFromModel()

@@ -13,13 +13,17 @@ struct Emoji {
     private var emojiString = ""
     private var emoji: [Card: String] = [:]
 
-    enum EmojiTheme {
+    enum EmojiTheme: CaseIterable {
         case halloween
         case sports
         case animals
         case people
         case flyingAnimals
         case letters
+
+        static var random: EmojiTheme {
+            return EmojiTheme.allCases[EmojiTheme.allCases.count.arc4random]
+        }
     }
 
     init(setTheme theme: EmojiTheme) {
