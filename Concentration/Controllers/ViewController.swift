@@ -14,7 +14,12 @@ class ViewController: UIViewController {
 
     private(set) var flipCount: Int = 0 {
         didSet {
-            flipsLabel.text = "Flips: \(flipCount)"
+            let attributes: [NSAttributedString.Key: Any] = [
+                .strokeWidth: 5.0,
+                .strokeColor: UIColor.orange
+            ]
+            let attString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
+            flipsLabel.attributedText = attString
         }
     }
 
@@ -24,13 +29,22 @@ class ViewController: UIViewController {
 
     private var emoji: Emoji!
 
+    @IBOutlet weak var newGameButton: UIButton! {
+        didSet {
+            let attributes: [NSAttributedString.Key: Any] = [
+                .strokeWidth: 4.0,
+                .strokeColor: UIColor.black
+            ]
+            let attString = NSAttributedString(string: " New Game ", attributes: attributes)
+            newGameButton.setAttributedTitle(attString, for: .normal)
+        }
+    }
     @IBOutlet private var cardButtons: [CardButton]!
     @IBOutlet private weak var flipsLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         startNewGame()
-        print(5.arc4random)
     }
 
     @IBAction private func touchCard(_ sender: CardButton) {

@@ -18,7 +18,7 @@ struct Concentration {
     private var indexOfOneAndOnlyFaceUpCard: Int? {
 
         get {
-            return cards.firstIndex(of: cards.filter{$0.isFaceUp}.oneAndOnly()!)
+            return cards.firstIndex(of: cards.filter {$0.isFaceUp}.oneAndOnly()!)
 //            var foundIndex: Int?
 //            for index in cards.indices where cards[index].isFaceUp {
 //                if foundIndex == nil {
@@ -42,7 +42,7 @@ struct Concentration {
     }
 
     mutating func chooseCard(at index: Int) {
-        assert(cards.indices.contains(index), "Concentration.chooseCard(at:\(index)): chosen index is not in the cards")
+        assert(cards.indices.contains(index), "Concentratión.chooseCard(at:\(index)): chósen index is not in the cards")
         //если карта не помечена как угаданная
         if !cards[index].isMatched {
             //если одна карта уже перевёрнута и это не текущая карта

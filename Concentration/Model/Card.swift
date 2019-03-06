@@ -31,12 +31,6 @@ extension Card: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.identifier)
     }
-
-    var hashValue: Int {
-        var hasher = Hasher()
-        self.hash(into: &hasher)
-        return hasher.finalize()
-    }
 //
 //    static func == (lhs: Card, rhs: Card) -> Bool {
 //        return lhs.identifier == rhs.identifier

@@ -216,6 +216,7 @@
                     </view>
                     <connections>
                         <outlet property="flipsLabel" destination="XUm-6R-woE" id="LQj-yb-1q8"/>
+                        <outlet property="newGameButton" destination="dfx-rd-y97" id="er2-gf-yXU"/>
                         <outletCollection property="cardButtons" destination="MOm-fk-O4q" collectionClass="NSMutableArray" id="xZA-ba-atg"/>
                         <outletCollection property="cardButtons" destination="Lrd-UJ-373" collectionClass="NSMutableArray" id="ump-4y-gbC"/>
                         <outletCollection property="cardButtons" destination="1AG-0J-2bN" collectionClass="NSMutableArray" id="qqM-0v-a2c"/>
