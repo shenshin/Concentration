@@ -12,17 +12,6 @@ class ViewController: UIViewController {
 
     private lazy var game: Concentration = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
 
-    private(set) var flipCount: Int = 0 {
-        didSet {
-            let attributes: [NSAttributedString.Key: Any] = [
-                .strokeWidth: 5.0,
-                .strokeColor: UIColor.orange
-            ]
-            let attString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
-            flipsLabel.attributedText = attString
-        }
-    }
-
     var numberOfPairsOfCards: Int {
         return (cardButtons.count+1)/2
     }
@@ -44,6 +33,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        game.delegate = self
         startNewGame()
     }
 
@@ -51,7 +41,6 @@ class ViewController: UIViewController {
         guard let cardNumber = cardButtons.firstIndex(of: sender) else {print("Card not found"); return}
         game.chooseCard(at: cardNumber)
         updateViewsFromModel()
-        flipCount += 1
     }
 
     @IBAction private func newGameButtonPressed(_ sender: UIButton) {
@@ -60,12 +49,12 @@ class ViewController: UIViewController {
 
     func startNewGame() {
         emoji = Emoji()
-        flipCount = 0
         game.startNewGame()
         updateViewsFromModel()
     }
 
     private func updateViewsFromModel() {
+
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -77,5 +66,16 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? .clear : .orange
             }
         }
+    }
+}
+
+extension ViewController: ConcentrationDelegate {
+    func flipsChanged(to flips: UInt8) {
+            let attributes: [NSAttributedString.Key: Any] = [
+                .strokeWidth: 5.0,
+                .strokeColor: UIColor.orange
+            ]
+            let attString = NSAttributedString(string: "Flips: \(flips)", attributes: attributes)
+            flipsLabel.attributedText = attString
     }
 }

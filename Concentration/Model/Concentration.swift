@@ -8,7 +8,19 @@
 
 import Foundation
 
+protocol ConcentrationDelegate: class {
+    func flipsChanged(to flips: UInt8)
+}
+
 struct Concentration {
+
+    weak var delegate: ConcentrationDelegate?
+
+    private var flips: UInt8 = .zero {
+        didSet {
+            delegate?.flipsChanged(to: flips)
+        }
+    }
 
     private(set) var cards: [Card] = []
 
@@ -34,6 +46,7 @@ struct Concentration {
 
     mutating func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentratión.chooseCard(at:\(index)): chósen index is not in the cards")
+        flips += 1
         //если карта не помечена как угаданная
         if !cards[index].isMatched {
             //если одна карта уже перевёрнута и это не текущая карта
@@ -54,6 +67,7 @@ struct Concentration {
 
     mutating func startNewGame() {
         cards.removeAll()
+        flips = .zero
         for _ in 1 ... numberOfPairsOfCards {
             let card = Card()
             cards += [card, card]

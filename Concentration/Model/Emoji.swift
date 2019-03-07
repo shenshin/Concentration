@@ -20,6 +20,7 @@ struct Emoji {
         case people = "👩🏻‍🌾🧕🏾👮🏼‍♂️👷🏻‍♂️👨🏼‍⚕️👨🏻‍🍳👨🏼‍💻👨🏼‍🏫🕵🏻‍♂️👩🏻‍🔬👩🏻‍🎨👨🏻‍🚒👨🏼‍✈️"
         case flyingAnimals = "🐔🐧🐤🦆🦅🦉🦇🦟🦜🦢🕊🦋🐝"
         case letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        case numbers = "1234567890!@#$%&*+-"
 
         static var random: EmojiTheme {
             return EmojiTheme.allCases.randomElement() ?? .halloween
