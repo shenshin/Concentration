@@ -22,7 +22,7 @@ struct Emoji {
         case letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
         static var random: EmojiTheme {
-            return EmojiTheme.allCases[EmojiTheme.allCases.count.arc4random]
+            return EmojiTheme.allCases.randomElement() ?? .halloween
         }
     }
 
@@ -30,7 +30,7 @@ struct Emoji {
         emojiString = theme.rawValue
     }
 
-    mutating func getGardItem(for card: Card) -> String {
+    mutating func getCardItem(for card: Card) -> String {
         if emoji[card] == nil, emojiString.count > 0 {
             let randomStringIndex = emojiString.index(emojiString.startIndex,
                                                       offsetBy: emojiString.count.arc4random)

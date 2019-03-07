@@ -12,16 +12,16 @@ import Foundation
 struct Card {
     var isFaceUp = false
     var isMatched = false
-    private var identifier: Int
+    private var identifier: uint_fast64_t
 
-    private static var identifierFactory = 0
+    private static var identifierFactory: UInt64 = 0
     //инициализаторы должны иметь одно имя для внутренних и внешних
     //параметров
     init() {
         self.identifier = Card.getUniqueIdentifier()
     }
 
-    private static func getUniqueIdentifier() -> Int {
+    private static func getUniqueIdentifier() -> UInt64 {
         identifierFactory += 1
         return identifierFactory
     }
