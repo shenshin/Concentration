@@ -32,7 +32,6 @@ struct Concentration {
 
     private(set) var cards: [Card] = []
     private var previouslyShownCard: Card?
-//    var shownCards: [Card] = []
 
     private let numberOfPairsOfCards: Int
 

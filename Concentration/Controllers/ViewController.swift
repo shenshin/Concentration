@@ -55,7 +55,6 @@ class ViewController: UIViewController {
     }
 
     private func updateViewsFromModel() {
-
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -72,20 +71,19 @@ class ViewController: UIViewController {
 
 extension ViewController: ConcentrationDelegate {
     func scoreChanged(to value: Int) {
+        makeAttributed(string: "\(value) :Score", for: scoreLabel)
+    }
+
+    func flipsChanged(to flips: UInt8) {
+        makeAttributed(string: "Flips: \(flips)", for: flipsLabel)
+    }
+
+    private func makeAttributed(string: String, for label: UILabel) {
         let attributes: [NSAttributedString.Key: Any] = [
             .strokeWidth: 5.0,
             .strokeColor: UIColor.orange
         ]
-        let attString = NSAttributedString(string: "\(value) :Score", attributes: attributes)
-        scoreLabel.attributedText = attString
-    }
-
-    func flipsChanged(to flips: UInt8) {
-            let attributes: [NSAttributedString.Key: Any] = [
-                .strokeWidth: 5.0,
-                .strokeColor: UIColor.orange
-            ]
-            let attString = NSAttributedString(string: "Flips: \(flips)", attributes: attributes)
-            flipsLabel.attributedText = attString
+        let attString = NSAttributedString(string: string, attributes: attributes)
+        label.attributedText = attString
     }
 }
