@@ -28,14 +28,9 @@ struct Emoji {
 
     init(setTheme theme: EmojiTheme) {
         emojiArray = setTheme(theme)
-        emojiString = makeStringFrom(array: emojiArray)
+        //Joins an array of strings into a string (built in func)
+        emojiString = emojiArray.joined()
         //emojiArray.shuffle()
-    }
-
-    private func makeStringFrom(array: [String]) -> String {
-        var output = ""
-        array.forEach {output.append($0)}
-        return output
     }
 
     private func setTheme(_ emojiTheme: EmojiTheme) -> [String] {
