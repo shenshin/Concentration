@@ -12,7 +12,9 @@ import Foundation
 struct Card {
     var isFaceUp = false
     var isMatched = false
-    private var identifier: uint_fast64_t
+    var isOnceShown = false
+
+    private var identifier: UInt64
 
     private static var identifierFactory: UInt64 = 0
     //инициализаторы должны иметь одно имя для внутренних и внешних

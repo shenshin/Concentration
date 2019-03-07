@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     }
     @IBOutlet private var cardButtons: [CardButton]!
     @IBOutlet private weak var flipsLabel: UILabel!
+    @IBOutlet private weak var scoreLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
     }
 
     func startNewGame() {
-        emoji = Emoji()
+        emoji = Emoji(setTheme: .halloween)
         game.startNewGame()
         updateViewsFromModel()
     }
@@ -70,6 +71,15 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ConcentrationDelegate {
+    func scoreChanged(to value: Int) {
+        let attributes: [NSAttributedString.Key: Any] = [
+            .strokeWidth: 5.0,
+            .strokeColor: UIColor.orange
+        ]
+        let attString = NSAttributedString(string: "\(value) :Score", attributes: attributes)
+        scoreLabel.attributedText = attString
+    }
+
     func flipsChanged(to flips: UInt8) {
             let attributes: [NSAttributedString.Key: Any] = [
                 .strokeWidth: 5.0,
