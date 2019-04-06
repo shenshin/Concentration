@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78097BF72257D1690099205A /* ThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78097BF62257D1690099205A /* ThemeChooserViewController.swift */; };
 		7854DA432226CB8900F07D61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7854DA422226CB8900F07D61 /* AppDelegate.swift */; };
-		7854DA452226CB8900F07D61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7854DA442226CB8900F07D61 /* ViewController.swift */; };
+		7854DA452226CB8900F07D61 /* ConcentrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7854DA442226CB8900F07D61 /* ConcentrationViewController.swift */; };
 		7854DA482226CB8900F07D61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7854DA462226CB8900F07D61 /* Main.storyboard */; };
 		7854DA4A2226CB8A00F07D61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7854DA492226CB8A00F07D61 /* Assets.xcassets */; };
 		7854DA4D2226CB8A00F07D61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7854DA4B2226CB8A00F07D61 /* LaunchScreen.storyboard */; };
@@ -20,9 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78097BF62257D1690099205A /* ThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChooserViewController.swift; sourceTree = "<group>"; };
 		7854DA3F2226CB8900F07D61 /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7854DA422226CB8900F07D61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7854DA442226CB8900F07D61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7854DA442226CB8900F07D61 /* ConcentrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationViewController.swift; sourceTree = "<group>"; };
 		7854DA472226CB8900F07D61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7854DA492226CB8A00F07D61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7854DA4C2226CB8A00F07D61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,7 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				7854DA422226CB8900F07D61 /* AppDelegate.swift */,
-				7854DA442226CB8900F07D61 /* ViewController.swift */,
+				7854DA442226CB8900F07D61 /* ConcentrationViewController.swift */,
+				78097BF62257D1690099205A /* ThemeChooserViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,8 +198,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78097BF72257D1690099205A /* ThemeChooserViewController.swift in Sources */,
 				78F81F332229E8F30075006E /* Emoji.swift in Sources */,
-				7854DA452226CB8900F07D61 /* ViewController.swift in Sources */,
+				7854DA452226CB8900F07D61 /* ConcentrationViewController.swift in Sources */,
 				7854DA432226CB8900F07D61 /* AppDelegate.swift in Sources */,
 				78DF35752226CC190015B65D /* Concentration.swift in Sources */,
 				78DF35782226E8350015B65D /* Card.swift in Sources */,

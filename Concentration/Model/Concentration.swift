@@ -102,6 +102,6 @@ struct Concentration {
             cards += [card, card]
         }
         //тасую карты стандартной функцией перетасовки массива
-        cards.shuffle()
+        //cards.shuffle()
     }
 }

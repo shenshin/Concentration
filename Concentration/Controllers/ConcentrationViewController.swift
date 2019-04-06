@@ -7,25 +7,46 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
 
+    var theme: String? {
+        didSet {
+            updateTheme()
+            updateViewsFromModel()
+        }
+    }
+    private var emojiChoices: String!
+    private var emoji = [Card: String]()
+    private func emoji(for card: Card) -> String {
+        if emoji[card] == nil, emojiChoices.count > 0 {
+            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex,
+                                                      offsetBy: emojiChoices.count.arc4random)
+            emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
+        }
+        return emoji[card] ?? "?"
+    }
+//
+//
+//
     private lazy var game: Concentration = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
 
     var numberOfPairsOfCards: Int {
         return (cardButtons.count+1)/2
     }
 
-    private var emoji: Emoji!
+    //private var emoji: Emoji!
 
     @IBOutlet weak var newGameButton: UIButton! {
         didSet {
             let attributes: [NSAttributedString.Key: Any] = [
                 .strokeWidth: 4.0,
-                .strokeColor: UIColor.black
+                .strokeColor: UIColor.white
             ]
             let attString = NSAttributedString(string: " New Game ", attributes: attributes)
             newGameButton.setAttributedTitle(attString, for: .normal)
+            newGameButton.backgroundColor = .blue
         }
     }
     @IBOutlet private var cardButtons: [CardButton]!
@@ -49,27 +70,38 @@ class ViewController: UIViewController {
     }
 
     func startNewGame() {
-        emoji = Emoji(setTheme: .halloween)
+        //emoji = Emoji(setTheme: .halloween)
+        //emoji.removeAll()
+        updateTheme()
         game.startNewGame()
         updateViewsFromModel()
     }
-
+    private func updateTheme() {
+        if let themeString = theme {
+            emojiChoices = themeString
+        } else {
+            emojiChoices = "🦇🧟‍♂️🧛🏻‍♂️💀🎃👻😈👾🧙🏼‍♀️"
+        }
+    }
     private func updateViewsFromModel() {
-        for index in cardButtons.indices {
-            let button = cardButtons[index]
-            let card = game.cards[index]
-            if card.isFaceUp {
-                button.setTitle(emoji.getCardItem(for: card), for: .normal)
-                button.backgroundColor = .white
-            } else {
-                button.setTitle("", for: .normal)
-                button.backgroundColor = card.isMatched ? .clear : .orange
+        if cardButtons != nil {
+            for index in cardButtons.indices {
+                let button = cardButtons[index]
+                let card = game.cards[index]
+                if card.isFaceUp {
+                    button.setTitle(emoji(for: card), for: .normal)
+                    //button.setTitle(emoji.getCardItem(for: card), for: .normal)
+                    button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                } else {
+                    button.setTitle("", for: .normal)
+                    button.backgroundColor = card.isMatched ? .clear : .blue
+                }
             }
         }
     }
 }
 
-extension ViewController: ConcentrationDelegate {
+extension ConcentrationViewController: ConcentrationDelegate {
     func scoreChanged(to value: Int) {
         makeAttributed(string: "\(value) :Score", for: scoreLabel)
     }
@@ -81,7 +113,7 @@ extension ViewController: ConcentrationDelegate {
     private func makeAttributed(string: String, for label: UILabel) {
         let attributes: [NSAttributedString.Key: Any] = [
             .strokeWidth: 5.0,
-            .strokeColor: UIColor.orange
+            .strokeColor: UIColor.blue
         ]
         let attString = NSAttributedString(string: string, attributes: attributes)
         label.attributedText = attString
