@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JEW-rr-pCA">
-    <device id="retina6_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Zd-1S-4yx">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,43 +16,43 @@
             <objects>
                 <viewController id="w6n-5N-NEN" customClass="ThemeChooserViewController" customModule="Concentration" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ab2-EE-oUT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W1S-0g-FDF">
-                                <rect key="frame" x="124.33333333333333" y="350.33333333333331" width="165.33333333333337" height="195.33333333333331"/>
+                                <rect key="frame" x="96" y="157.66666666666666" width="128" height="98.666666666666657"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtZ-Wp-0As">
-                                        <rect key="frame" x="0.0" y="0.0" width="165.33333333333334" height="59.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="27.666666666666668"/>
                                         <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Sports">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="chooseTheme:" destination="w6n-5N-NEN" eventType="touchUpInside" id="Pgb-zc-oYc"/>
+                                            <action selector="changeTheme:" destination="w6n-5N-NEN" eventType="touchUpInside" id="Pgb-zc-oYc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGK-JX-zqA">
-                                        <rect key="frame" x="0.0" y="67.666666666666686" width="165.33333333333334" height="60"/>
+                                        <rect key="frame" x="0.0" y="35.666666666666686" width="128" height="27.333333333333329"/>
                                         <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Faces">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="chooseTheme:" destination="w6n-5N-NEN" eventType="touchUpInside" id="b1y-yI-HWm"/>
+                                            <action selector="changeTheme:" destination="w6n-5N-NEN" eventType="touchUpInside" id="b1y-yI-HWm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODZ-5f-Ee1">
-                                        <rect key="frame" x="0.0" y="135.66666666666669" width="165.33333333333334" height="59.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="71" width="128" height="27.666666666666671"/>
                                         <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Animals">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="chooseTheme:" destination="w6n-5N-NEN" eventType="touchUpInside" id="VZb-OZ-X8p"/>
+                                            <action selector="changeTheme:" destination="w6n-5N-NEN" eventType="touchUpInside" id="VZb-OZ-X8p"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -75,35 +75,86 @@
                     </view>
                     <navigationItem key="navigationItem" id="txE-Gc-VZC"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="Choose Theme" id="ojc-R5-7bK"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="8Ox-y8-DOK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAg-fu-OpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-140.57971014492756" y="13.043478260869566"/>
+            <point key="canvasLocation" x="-1243" y="470"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="32X-3u-vtU">
+            <objects>
+                <viewController id="THL-YC-yrq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8WG-EA-5OC">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gXz-3b-Fov"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="zA7-XU-BAZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Si-Zp-6i8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2852" y="1516"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="rTE-6s-VrE">
+            <objects>
+                <viewController id="eWN-FB-vur" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FJG-41-csY">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Kon-lD-ekP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="VdF-VJ-rN8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hqX-Ue-VSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2113" y="1559"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="jPo-2Q-GDf">
+            <objects>
+                <tabBarController id="7Zd-1S-4yx" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cSc-1V-Utt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="8af-Ir-jsr" kind="relationship" relationship="viewControllers" id="lON-Mn-6le"/>
+                        <segue destination="eWN-FB-vur" kind="relationship" relationship="viewControllers" id="hQs-zU-2lV"/>
+                        <segue destination="THL-YC-yrq" kind="relationship" relationship="viewControllers" id="pgU-sg-cmx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ua2-kW-Z6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2852" y="469"/>
         </scene>
         <!--Concentration View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ConcentrationViewController" customModule="Concentration" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="415.66666665673256" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUm-6R-woE">
-                                <rect key="frame" x="10" y="805.33333333333337" width="197" height="46.666666666666629"/>
+                                <rect key="frame" x="10" y="308.33333333333331" width="198" height="46.666666666666686"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Gu4-Ox-SJd" userLabel="Cards">
-                                <rect key="frame" x="10" y="98.000000000000028" width="394" height="434.66666666666674"/>
+                                <rect key="frame" x="10" y="10" width="395.66666666666669" height="215.66666666666666"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="h1O-T3-zMh" userLabel="Cards top row">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="139.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="395.66666666666669" height="66.666666666666671"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Us-FF-IdT" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="139.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="66.666666666666671"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -114,7 +165,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AG-0J-2bN" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="100.66666666666669" y="0.0" width="92.333333333333314" height="139.66666666666666"/>
+                                                <rect key="frame" x="101" y="0.0" width="93" height="66.666666666666671"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -125,7 +176,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-UJ-373" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="201" y="0.0" width="92.666666666666686" height="139.66666666666666"/>
+                                                <rect key="frame" x="202.00000000000006" y="0.0" width="92.666666666666686" height="66.666666666666671"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -136,7 +187,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOm-fk-O4q" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="301.66666666666669" y="0.0" width="92.333333333333314" height="139.66666666666666"/>
+                                                <rect key="frame" x="302.66666666666669" y="0.0" width="93" height="66.666666666666671"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -149,10 +200,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1BO-g3-2Df" userLabel="Cards middle row">
-                                        <rect key="frame" x="0.0" y="147.66666666666669" width="394" height="139.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="74.666666666666686" width="395.66666666666669" height="66.333333333333314"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTf-W3-01g" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="139.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="66.333333333333329"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -163,7 +214,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5C-SI-qUV" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="100.66666666666669" y="0.0" width="92.333333333333314" height="139.66666666666666"/>
+                                                <rect key="frame" x="101" y="0.0" width="93" height="66.333333333333329"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -174,7 +225,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NV-Q8-0DH" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="201" y="0.0" width="92.666666666666686" height="139.66666666666666"/>
+                                                <rect key="frame" x="202.00000000000006" y="0.0" width="92.666666666666686" height="66.333333333333329"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -185,7 +236,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWi-0m-ghI" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="301.66666666666669" y="0.0" width="92.333333333333314" height="139.66666666666666"/>
+                                                <rect key="frame" x="302.66666666666669" y="0.0" width="93" height="66.333333333333329"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -198,10 +249,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3jX-eA-RuB" userLabel="Cards bottom row">
-                                        <rect key="frame" x="0.0" y="295.33333333333331" width="394" height="139.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="149" width="395.66666666666669" height="66.666666666666686"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdM-9n-K0C" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="139.33333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="66.666666666666671"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -212,7 +263,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lra-DU-uhc" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="100.66666666666669" y="0.0" width="92.333333333333314" height="139.33333333333334"/>
+                                                <rect key="frame" x="101" y="0.0" width="93" height="66.666666666666671"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -223,7 +274,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbf-Tl-bKA" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="201" y="0.0" width="92.666666666666686" height="139.33333333333334"/>
+                                                <rect key="frame" x="202.00000000000006" y="0.0" width="92.666666666666686" height="66.666666666666671"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -234,7 +285,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lG0-0p-VYR" userLabel="CardButton" customClass="CardButton" customModule="Concentration">
-                                                <rect key="frame" x="301.66666666666669" y="0.0" width="92.333333333333314" height="139.33333333333334"/>
+                                                <rect key="frame" x="302.66666666666669" y="0.0" width="93" height="66.666666666666671"/>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                                 <state key="normal">
@@ -249,10 +300,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nn-LA-UcB">
-                                <rect key="frame" x="0.0" y="532.66666666666663" width="414" height="272.66666666666663"/>
+                                <rect key="frame" x="0.0" y="225.66666666666666" width="415.66666666666669" height="82.666666666666657"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfx-rd-y97">
-                                        <rect key="frame" x="121" y="112" width="172" height="49"/>
+                                        <rect key="frame" x="122" y="16.666666666666686" width="172" height="49"/>
                                         <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="31"/>
                                         <state key="normal" title=" New Game ">
@@ -270,7 +321,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 :Score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLM-01-qEk">
-                                <rect key="frame" x="207" y="805.33333333333337" width="197" height="46.666666666666629"/>
+                                <rect key="frame" x="208.00000000000006" y="308.33333333333331" width="197.66666666666669" height="46.666666666666686"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -317,7 +368,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678.26086956521749" y="13.858695652173914"/>
+            <point key="canvasLocation" x="-1271" y="1365"/>
+        </scene>
+        <!--Concentration-->
+        <scene sceneID="zsQ-PX-08p">
+            <objects>
+                <splitViewController id="8af-Ir-jsr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Concentration" id="pcb-le-0wz"/>
+                    <connections>
+                        <segue destination="JEW-rr-pCA" kind="relationship" relationship="masterViewController" id="3ZR-0r-Fnm"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="Kci-Vd-Z0I"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7D-1a-OXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1990" y="470"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FSa-px-NeP">
@@ -325,7 +390,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JEW-rr-pCA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ctc-at-jPt">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -335,7 +400,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Us1-UV-q3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-939" y="13"/>
+            <point key="canvasLocation" x="-1291" y="-323"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8Ox-y8-DOK"/>
+    </inferredMetricsTieBreakers>
 </document>

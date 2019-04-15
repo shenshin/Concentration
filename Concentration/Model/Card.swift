@@ -42,3 +42,9 @@ extension Card: Hashable {
         return lhs.identifier == rhs.identifier
     }
 }
+
+extension Card: CustomStringConvertible {
+    var description: String {
+        return "Card№\(identifier): Is Face Up - \(isFaceUp), Is Matched: \(isMatched), Is Once Shown: \(isOnceShown)"
+    }
+}

@@ -18,7 +18,12 @@ class ConcentrationViewController: UIViewController {
         }
     }
     private var emojiChoices: String!
-    private var emoji = [Card: String]()
+    //чтобы при смене темы менялись уже показанные карты, нужно заменить карты в этом массиве
+    private var emoji = [Card: String]() {
+        didSet {
+            print(emoji)
+        }
+    }
     private func emoji(for card: Card) -> String {
         if emoji[card] == nil, emojiChoices.count > 0 {
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex,

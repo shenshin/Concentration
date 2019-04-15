@@ -85,11 +85,11 @@ struct Concentration {
     }
 
     private mutating func decreaseScore(for card: Card) {
-        if card.isOnceShown {
+        if card.isOnceShown, previouslyShownCard != card {
             score--
-            if previouslyShownCard == card {
-                score++
-            }
+//            if previouslyShownCard == card {
+//                score++
+//            }
         }
     }
 
@@ -102,6 +102,6 @@ struct Concentration {
             cards += [card, card]
         }
         //тасую карты стандартной функцией перетасовки массива
-        //cards.shuffle()
+        cards.shuffle()
     }
 }
